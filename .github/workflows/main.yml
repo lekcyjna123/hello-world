@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - 'feature/**'
+  pull_request:
+    branches:
+      - master
+      - 'feature/**'
+  workflow_dispatch:
+
+jobs:
+  run-regression-tests:
+    name: Run regression tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    container: ghcr.io/kuznia-rdzeni/verilator:v5.008-3.11
+    needs: build-regression-tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements-dev.txt
+
+      - name: Generate Verilog
+        run: env
