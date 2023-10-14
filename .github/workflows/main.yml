@@ -25,14 +25,12 @@ jobs:
         run: |
           python3 -m venv venv
           env
-          ls -la
-          echo "----"
-          ls -la venv
-          echo "----"
-          ls -la venv/bin/activate
           . venv/bin/activate
+          env
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements-dev.txt
 
       - name: Generate Verilog
-        run: env
+        run: |
+          env
+          python3 -m pip freeze
