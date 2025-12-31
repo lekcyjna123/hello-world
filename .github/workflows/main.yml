@@ -31,5 +31,9 @@ jobs:
           echo $S
           echo $S >plik
           cat plik | base64
+          echo ${S:0:4}
+          echo ${S:4:60}
+
+
 
 
