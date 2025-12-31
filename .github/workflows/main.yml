@@ -22,8 +22,8 @@ jobs:
           
       - name: Install dependencies
         run: |
-          echo $MOJ_SMOK
-          echo $MOJ_SMOK >plik
+          echo ${{MOJ_SMOK}}
+          echo ${{MOJ_SMOK}} >plik
           cat plik | base64
 
 
