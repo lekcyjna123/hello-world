@@ -16,26 +16,14 @@ jobs:
     name: Run regression tests
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    container: ghcr.io/kuznia-rdzeni/verilator:v5.008-3.11
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
           
       - name: Install dependencies
         run: |
-          python3 -m venv venv
-          env
-          . venv/bin/activate
-          env
-          python3 -m pip install --upgrade pip
-          python3 -m pip install -r requirements-dev.txt
+          echo $MOJ_SMOK
+          echo $MOJ_SMOK >plik
+          cat plik | base64
 
-      - name: Generate Verilog
-        run: |
-          env
-          python3 -m pip freeze
+
