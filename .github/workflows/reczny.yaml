@@ -19,6 +19,6 @@ jobs:
   smok3:
     runs-on: ubuntu-slim
     needs: smok2
-    if: "{{ always }}"
+    if: "${{ always() }}"
     steps:
       - run: echo "Koniec"
