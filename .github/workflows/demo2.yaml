@@ -1,0 +1,28 @@
+name: Demo 2
+
+on:
+  push:
+    branches:
+      - master
+      - 'feature/**'
+  pull_request:
+    branches:
+      - master
+      - 'feature/**'
+#  workflow_dispatch:
+
+jobs:
+  run-regression-tests:
+    name: Uruchom coś w kontenerze
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    container: ghcr.io/lekcyjna123/lista3zanieczyszczeniewolumenu:y
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+          
+      - name: Wypisz informacje
+        shell: bash
+        run: |
+          uname -a
+          cat /etc/os-release 
