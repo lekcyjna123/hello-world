@@ -16,3 +16,9 @@ jobs:
           apt update
           apt install sl
       - run: sl
+  smok3:
+    runs-on: ubuntu-slim
+    needs: smok2
+    if: "{{ always }}"
+    steps:
+      - run: echo "Koniec"
