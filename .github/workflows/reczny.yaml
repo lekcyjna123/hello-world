@@ -1,0 +1,18 @@
+name: "Prosty workflow uruchamiany ręcznie"
+on: 
+  workflow_dispatch:
+jobs:
+  smok1:
+    runs-on: ubuntu-slim
+    steps:
+      - run: | 
+          echo "Kaltbluetige Wuestendrache!"
+  smok2:
+    runs-on: ubuntu-slim
+    needs: smok1
+    steps:
+      - run: |
+          echo "vierblättriges Kleeblatt"
+          apt update
+          apt install sl
+      - run: sl
