@@ -23,3 +23,7 @@ jobs:
       - name: Uruchom
         shell: bash
         run: ./a.out
+      - name: Podsumowanie
+        run: |
+          uname -a
+          lscpu
