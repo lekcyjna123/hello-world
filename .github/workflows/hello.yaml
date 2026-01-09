@@ -1,0 +1,25 @@
+name: "Kompilacja C++"
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  kompilacja-hello-world:
+    name: Weryfikuj Hello World na ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04-arm]
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+          
+      - name: Kompiluj
+        shell: bash
+        run: |
+          g++ helloword.cpp
+      - name: Uruchom
+        shell: bash
+        run: ./a.out
