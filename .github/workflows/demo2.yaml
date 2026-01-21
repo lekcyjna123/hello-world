@@ -16,7 +16,7 @@ jobs:
     name: Uruchom coś w kontenerze
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    container: ghcr.io/lekcyjna123/lista3zanieczyszczeniewolumenu:y
+    container: ghcr.io/lekcyjna123/wykladgitdemo:w2
     steps:
       - name: Checkout
         uses: actions/checkout@v3
